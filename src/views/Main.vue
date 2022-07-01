@@ -1,8 +1,13 @@
 <template>
   <div class="main">
-    <!-- <img src="./assets/shenli.jpg"> -->
     <h1>{{ msg }}</h1>
+    <br/>
+    <div class="shenli">
+      <img  src="../assets/image/shenli.jpg">
+    </div>
+    
   </div>
+  
 </template>
 
 <script>
@@ -18,6 +23,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main{
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.shenli{
+  height: 300px;
+  width: 300px;
+}
 h1, h2 {
   font-weight: normal;
 }

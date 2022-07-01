@@ -36,11 +36,13 @@ export default {
   },
   methods:{
     UserLogin(){
+      this.$router.push('/main')
      
     },
     UserSign(){
 
     }
+  
   }
 };
 </script>
