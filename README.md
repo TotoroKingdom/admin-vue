@@ -1,2 +1,2 @@
 # GenshinImpact
-##jenkind test
+##jenkins test
