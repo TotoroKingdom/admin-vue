@@ -5,17 +5,17 @@
         <h2>Login</h2>
         <div class="input-box">
             <label>账号</label>
-            <input type="text"/>
+            <input type="text" v-model="userID"/>
         </div>
         <div class="input-box">
             <label>密码</label>
-            <input type="password"/>
+            <input type="password" v-model="pwd"/>
         </div>
         <div class="btn-box">
             <a href="#">忘记密码?</a>
             <div>
-                <button>登录</button>
-                <button>注册</button>
+                <button  v-text="`登录`"  @click="UserLogin"></button>
+                <button  v-text="`注册`" @click="UserSign"></button>
             </div>
         </div>
     </div>
@@ -30,8 +30,18 @@ export default {
   data() {
     return {
       msg: "Welcome!",
+      userID:'',
+      pwd:''
     };
   },
+  methods:{
+    UserLogin(){
+     
+    },
+    UserSign(){
+
+    }
+  }
 };
 </script>
 
