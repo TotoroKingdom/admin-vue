@@ -36,13 +36,25 @@ export default {
   },
   methods:{
     UserLogin(){
-      this.$router.push('/main')
+      // this.$router.push('/main')
+      this.getUserinfo()
      
     },
     UserSign(){
 
+    },
+    getUserinfo(){
+      let _this = this
+      return new Promise((resolve, reject) => {
+      _this.$UserData.Userbaseinfo().then((res)=>{
+        
+        console.log('@@@@',res)
+        resolve()
+      }).catch((err)=>{
+        reject(err)
+      })
+      })
     }
-  
   }
 };
 </script>
