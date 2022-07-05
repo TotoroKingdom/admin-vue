@@ -20,6 +20,25 @@
         </div>
     </div>
 
+    <div class="Signbox">
+        <h2>Sign</h2>
+        <div class="input-box">
+            <label>账号</label>
+            <input type="text" v-model="userID"/>
+        </div>
+        <div class="input-box">
+            <label>密码</label>
+            <input type="password" v-model="pwd"/>
+        </div>
+        <div class="btn-box">
+            
+            <div>
+                <button  v-text="`注册`"  @click="UserLogin"></button>
+                <button  v-text="`已有账号直接登陆`" @click="backLogin"></button>
+            </div>
+        </div>
+    </div>
+
    
   </div>
 </template>
@@ -34,6 +53,7 @@ export default {
       pwd:''
     };
   },
+  
   methods:{
     UserLogin(){
       // this.$router.push('/main')
@@ -41,7 +61,16 @@ export default {
      
     },
     UserSign(){
-
+      let Signdom = document.querySelector('.Signbox')
+      let Logindom =document.querySelector('.box')
+      Signdom.style.transform = "rotateY(0deg)"
+      Logindom.style.transform = "rotateY(180deg)"
+    },
+    backLogin(){
+      let Signdom = document.querySelector('.Signbox')
+      let Logindom =document.querySelector('.box')
+      Signdom.style.transform = "rotateY(-180deg)"
+      Logindom.style.transform = "rotateY(0deg)"
     },
     getUserinfo(){
       let _this = this
@@ -71,5 +100,18 @@ export default {
   
 }
 
+.box{
+  position: absolute;
+  z-index: 1;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+.Signbox{
+  position: absolute;
+  z-index:0;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+  transition: all 0.5s;
+}
 
 </style>
