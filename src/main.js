@@ -14,5 +14,15 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data:{
+    api:''
+  },
+  beforeMount(){
+    let _this =this;
+    var cfg = _this.$UserData.getConfig();
+    
+    _this.api = cfg.api.imgs;
+    
+  }
 })

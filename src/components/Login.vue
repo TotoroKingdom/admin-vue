@@ -74,9 +74,18 @@ export default {
     },
     getUserinfo(){
       let _this = this
+      debugger
+      const url = _this.$root.api
+      
+      let params = {
+        db:999,
+        output_type: 2,
+        numres: 3,
+        api_key:"a5d6656276b8b837c4cf1ec14e5554788ea548e3",
+        url:"https%3A%2F%2Fc2cpicdw.qpic.cn%2Foffpic_new%2F765830637%2F%2F765830637-2654397626-8CE31237DFAF3D516C2435C66D3A43F5%2F0%3Fterm%3D2"
+      }
       return new Promise((resolve, reject) => {
-      _this.$UserData.Userbaseinfo().then((res)=>{
-        
+      _this.$UserData.Userbaseinfo(url,params).then((res)=>{
         console.log('@@@@',res)
         resolve()
       }).catch((err)=>{
