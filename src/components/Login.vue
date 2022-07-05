@@ -74,7 +74,6 @@ export default {
     },
     getUserinfo(){
       let _this = this
-      debugger
       const url = _this.$root.api
       
       let params = {
