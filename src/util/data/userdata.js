@@ -6,7 +6,7 @@ const getConfig = function(){
   return GetJ.getJson('../static/WebConfig.json')
 }
 const Userbaseinfo = function (url,params) {
-  return MyHttp.Fecthget(url,params)
+  return MyHttp.FetchPost(url,params)
 }
 export default {
   getConfig,

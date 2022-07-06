@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <h1>{{ msg }}</h1>
-    <br/>
+    
     <div class="shenli">
       <img  src="../assets/image/shenli.jpg">
     </div>
@@ -28,6 +28,7 @@ export default {
   justify-content: center;
   align-items: center;
   display: flex;
+  flex-direction: column;
 }
 .shenli{
   height: 300px;

@@ -1,5 +1,5 @@
-const Ourl = ''
-
+const Ourl = 'http://120.78.215.214/api'
+// const Ourl = ''
 /* get请求封装 */
 const Fecthget = function(url,params){
 let List = []
@@ -30,16 +30,18 @@ return fetch(allUrl, options).then(res => {
 }
 
 // post请求封装
-const fetchPost = function (url, params) {
+const FetchPost = function (url, params) {
   const options = {
       method: 'POST',
       headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json;charset=UTF-8',
+          'Content-Type': 'application/json',
       },
       body: JSON.stringify(params),
   }
-  return fetch(Ourl + url, options).then(res => {
+  debugger
+  return fetch(Ourl+url, options).then(res => {
+    
       if(res.ok){
         return res.json();
       }
@@ -51,7 +53,7 @@ const fetchPost = function (url, params) {
 
 export default{
   Fecthget,
-  fetchPost,
+  FetchPost,
   
 
 }
