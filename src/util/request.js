@@ -39,7 +39,7 @@ const FetchPost = function (url, params) {
       },
       body: JSON.stringify(params),
   }
-  debugger
+
   return fetch(Ourl+url, options).then(res => {
     
       if(res.ok){

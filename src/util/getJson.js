@@ -4,7 +4,7 @@ import $ from "jquery"
   var json = null;
   $.getJSON(url, {}, function (data) {
     json = data
-    $.ajaxSetup({async:true})
+  $.ajaxSetup({async:true})
   })
   return json
  }
