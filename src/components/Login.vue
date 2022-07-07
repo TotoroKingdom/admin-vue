@@ -1,5 +1,14 @@
 <template>
   <div class="login_container">
+    <div class="Playmusic" @click="musicMuted">
+      <img src="../assets/image/music.png" >
+    </div>
+    <div class="mutedmusic" @click="mutedPlay">
+      <img src="../assets/image/muted.png" >
+    </div>
+    <video id="OPVideo"  style="width:100%;height:100%;object-fit:cover;z-index:-1"  autoplay loop muted >
+      <source src="../assets/image/GenshinImpact.mp4" type="video/mp4">
+    </video>
     <div class="box">
       <h2>Login</h2>
       <div class="input-box">
@@ -51,6 +60,24 @@ export default {
   },
 
   methods: {
+    /* 静音 */
+    musicMuted(){
+      let musicdom = document.querySelector('.Playmusic')
+      let muteddom = document.querySelector('.mutedmusic')
+      let vide  = document.getElementById('OPVideo')
+      musicdom.style.display = "none";
+      muteddom.style.display = "block";
+      vide.muted = true
+    },
+    /* 播放 */
+    mutedPlay(){
+      let musicdom = document.querySelector('.Playmusic')
+      let muteddom = document.querySelector('.mutedmusic')
+      let vide  = document.getElementById('OPVideo')
+      musicdom.style.display = "block";
+      muteddom.style.display = "none";
+      vide.muted = false
+    },
     UserLogin() {
       // this.$router.push('/main')
       this.getUserinfo();
@@ -93,9 +120,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.mutedmusic{
+  position: fixed;
+  top: 30px;
+  left: 38px;
+}
+.Playmusic{
+  position: fixed;
+  display: none;
+  top: 30px;
+  left: 38px;
+}
 .login_container {
-  background-image: url(../assets/image/login.jpg);
-  background-size: 100% 100%;
+  /* background-image: url(../assets/image/login.jpg);
+  background-size: 100% 100%; */
   height: 100vh;
   justify-content: center;
   align-items: center;
