@@ -79,8 +79,8 @@ export default {
       vide.muted = false
     },
     UserLogin() {
-      // this.$router.push('/main')
       this.getUserinfo();
+      this.$router.push('/main')
     },
     UserSign() {
       let Signdom = document.querySelector(".Signbox");
