@@ -83,8 +83,10 @@ export default {
       vide.muted = false
     },
     UserLogin() {
-      // this.getUserinfo();
-      this.$router.push('/main')
+      this.getUserinfo().then(
+        this.$router.push('/main')
+      )
+      
     },
     UserSign() {
       let Signdom = document.querySelector(".Signbox");
@@ -100,7 +102,7 @@ export default {
     },
     getUserinfo() {
       let _this = this;
-      const url = "/login";
+      const url = "/apis/login";
 
       let params = {
         username: "totoro",
@@ -110,7 +112,10 @@ export default {
         _this.$UserData
           .Userbaseinfo(url, params)
           .then((res) => {
-            console.log("@@@@", res);
+            if(res){
+              
+              sessionStorage.setItem('token',res.token)
+            }
             resolve();
           })
           .catch((err) => {

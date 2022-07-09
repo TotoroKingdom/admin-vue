@@ -8,7 +8,11 @@ const getConfig = function(){
 const Userbaseinfo = function (url,params) {
   return MyHttp.FetchPost(url,params)
 }
+const getSlip = function (url,params) {
+  return MyHttp.FetchPost(url,params)
+}
 export default {
+  getSlip,
   getConfig,
   Userbaseinfo
 }

@@ -143,7 +143,25 @@ export default {
   },
   mounted(){
     let _this = this 
-    _this.todayslip = Base64.decode("4oCU4oCU5aSn5ZCJ4oCU4oCUCuWuneWJkeWHuuWMo+adpe+8jOaXoOW+gOS4jeWIqeOAguWHuuWMo+S5i+WFie+8jOS6puiDveeFp+S6ruS7luS6uuOAggrku4rml6Xog73kuIDnrq3lsITkuK3nqbrkuK3nmoTnjI7nianvvIzog73kuIDlh7vlkb3kuK3lrojljavopoHlrrPjgIIK6Iul5rKh5pyJ55uu5qCH77yM5LiN5aao5Zub5aSE6L2s6L2s77yM6K+05LiN5a6a5Lya5pyJ5oSP5aSW5LmL5Zac44CCCuWQjOaXtu+8jOS5n+S4jeimgeW/mOiusOWSjOWAkumcieeahOWQjOS8tOWIhuS6q+S4gOS4i+Wlvei/kOawlOWTpuOAggoK5LuK5aSp55qE5bm46L+Q54mp5pivOumavuW+l+S4gOingeeahOOAjOmprOWwvuOAjeOAggrpqazlsL7pmo/lpKfniYfojbvojYnnlJ/plb/vvIzkvYbljbTmm7TkuLrmjLrmi5TjgIIK5LiO5YKy54S25oy656uL5LqO5q2k5LiW55qE5L2g5LiA5a6a5b6I5piv55u46YWN44CCCg")
+    _this.GetSlip()
+   
+  },
+  methods:{
+    GetSlip(){
+      let _this = this 
+      const url = '/apis/today/fortune'
+      let headerparams = sessionStorage.getItem('token')
+      return new Promise((resolve, reject) => {
+        _this.$UserData.getSlip(url,'',headerparams).then((res)=>{
+          if(res){
+             _this.todayslip =Base64.decode(res.data.content)
+          }
+          resolve()
+        }).catch((err)=>{
+          reject(err)
+        })
+      })
+    }
   }
 };
 </script>

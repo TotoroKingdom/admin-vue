@@ -1,5 +1,5 @@
-const Ourl = 'http://120.78.215.214/api'
-// const Ourl = ''
+// const Ourl = 'http://120.78.215.214/api'
+const Ourl = ''
 /* get请求封装 */
 const Fecthget = function(url,params){
 let List = []
@@ -30,7 +30,7 @@ return fetch(allUrl, options).then(res => {
 }
 
 // post请求封装
-const FetchPost = function (url, params) {
+const FetchPost = function (url, params,headersparams) {
   const options = {
       method: 'POST',
       headers: {
@@ -39,7 +39,9 @@ const FetchPost = function (url, params) {
       },
       body: JSON.stringify(params),
   }
-
+  if(!!headersparams){
+    options.headers.cookie = `satoken=${headersparams}`
+  }
   return fetch(Ourl+url, options).then(res => {
     
       if(res.ok){
