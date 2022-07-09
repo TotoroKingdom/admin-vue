@@ -28,7 +28,22 @@
         </div>
       </div>
     </header>
+
     <div class="content">
+      <div class="slipMain">
+        <div class="slipTittle">
+          <h1>今日运势</h1>
+        </div>
+        <div class="slipborder">
+          <div class="slip">
+           {{todayslip}}
+          </div>
+        </div>
+        <div class="imgs">
+          <img src="../assets/image/paimeng.png" />
+        </div>
+      </div>
+
       <div class="contentMain">
         <img
           src="../assets/image/star_corner.svg"
@@ -93,7 +108,10 @@
               <div class="secondRound" style="top: -10px; left: -10px"></div>
               <div class="secondRound" style="top: -10px; right: -10px"></div>
               <div class="secondRound" style="bottom: -10px; left: -10px"></div>
-              <div class="secondRound" style="bottom: -10px; right: -10px"></div>
+              <div
+                class="secondRound"
+                style="bottom: -10px; right: -10px"
+              ></div>
             </div>
           </div>
         </div>
@@ -114,13 +132,19 @@
 </template>
 
 <script>
+import { Base64 } from 'js-base64'
 export default {
   name: "Main",
   data() {
     return {
       msg: "Welcome 神里大小姐",
+      todayslip:''
     };
   },
+  mounted(){
+    let _this = this 
+    _this.todayslip = Base64.decode("4oCU4oCU5aSn5ZCJ4oCU4oCUCuWuneWJkeWHuuWMo+adpe+8jOaXoOW+gOS4jeWIqeOAguWHuuWMo+S5i+WFie+8jOS6puiDveeFp+S6ruS7luS6uuOAggrku4rml6Xog73kuIDnrq3lsITkuK3nqbrkuK3nmoTnjI7nianvvIzog73kuIDlh7vlkb3kuK3lrojljavopoHlrrPjgIIK6Iul5rKh5pyJ55uu5qCH77yM5LiN5aao5Zub5aSE6L2s6L2s77yM6K+05LiN5a6a5Lya5pyJ5oSP5aSW5LmL5Zac44CCCuWQjOaXtu+8jOS5n+S4jeimgeW/mOiusOWSjOWAkumcieeahOWQjOS8tOWIhuS6q+S4gOS4i+Wlvei/kOawlOWTpuOAggoK5LuK5aSp55qE5bm46L+Q54mp5pivOumavuW+l+S4gOingeeahOOAjOmprOWwvuOAjeOAggrpqazlsL7pmo/lpKfniYfojbvojYnnlJ/plb/vvIzkvYbljbTmm7TkuLrmjLrmi5TjgIIK5LiO5YKy54S25oy656uL5LqO5q2k5LiW55qE5L2g5LiA5a6a5b6I5piv55u46YWN44CCCg")
+  }
 };
 </script>
 
@@ -253,5 +277,43 @@ export default {
   border: 2px solid #000;
   z-index: 2;
   box-sizing: border-box;
+}
+.slip {
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  position: absolute;
+  border: 1px solid #711b0f;
+  background: #e3d8aa;
+  font-family: cursive;
+  box-sizing: border-box;
+  left: 5px;
+  top: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: pre-line;
+}
+.slipMain {
+  height: 730px;
+  width: 320px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 10px solid #d6d0c0;
+  position: absolute;
+  background-color: #fcfdfa;
+  left: 28px;
+}
+.slipborder {
+  height: 525px;
+  width: 250px;
+  margin-left: calc((100% - 250px) / 2);
+  margin-top: 25px;
+  background: #e3d8aa;
+  box-shadow: 2px 2px 2px 1px rgb (0 0 0/20%);
+  position: relative;
+}
+.slipTittle {
+  text-align: center;
+  margin-top: 20px;
+  color: #711b0f;
 }
 </style>

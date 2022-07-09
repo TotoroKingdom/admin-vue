@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import {parse} from 'yaml'
+
 export default {
   name: "Login",
   data() {
@@ -58,7 +60,9 @@ export default {
       pwd: "",
     };
   },
-
+  mounted(){
+    
+  },
   methods: {
     /* 静音 */
     musicMuted(){
@@ -79,7 +83,7 @@ export default {
       vide.muted = false
     },
     UserLogin() {
-      this.getUserinfo();
+      // this.getUserinfo();
       this.$router.push('/main')
     },
     UserSign() {
