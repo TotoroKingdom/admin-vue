@@ -102,7 +102,8 @@ export default {
     },
     getUserinfo() {
       let _this = this;
-      const url = "/apis/login";
+      // const url = "/apis/login";
+      const url = 'login'
 
       let params = {
         username: "totoro",
@@ -139,7 +140,7 @@ export default {
   display: none;
   top: 30px;
   left: 38px;
-}
+} 
 .login_container {
   /* background-image: url(../assets/image/login.jpg);
   background-size: 100% 100%; */

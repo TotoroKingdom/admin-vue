@@ -149,7 +149,8 @@ export default {
   methods:{
     GetSlip(){
       let _this = this 
-      const url = '/apis/today/fortune'
+      // const url = '/apis/today/fortune'
+      const url = 'today/fortune'
       let headerparams = sessionStorage.getItem('token')
       return new Promise((resolve, reject) => {
         _this.$UserData.getSlip(url,'',headerparams).then((res)=>{
