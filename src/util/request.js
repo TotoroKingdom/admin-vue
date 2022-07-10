@@ -1,4 +1,4 @@
-const Ourl = 'http://120.78.215.214/api/'
+const Ourl = 'http://120.78.215.214/api'
 // const Ourl = 'http://localhost:8080/api/'
 /* get请求封装 */
 const Fecthget = function(url,params){
@@ -40,7 +40,7 @@ const FetchPost = function (url, params,headersparams) {
       body: JSON.stringify(params),
   }
   if(!!headersparams){
-    options.headers.cookie = `satoken=${headersparams}`
+    options.headers.satoken = headersparams
   }
   return fetch(Ourl+url, options).then(res => {
     
