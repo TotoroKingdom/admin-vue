@@ -11,7 +11,12 @@ const Userbaseinfo = function (url,params) {
 const getSlip = function (url,params,headersparams) {
   return MyHttp.FetchPost(url,params,headersparams)
 }
+
+const Register = function(url,params){
+  return MyHttp.FetchPost(url,params)
+}
 export default {
+  Register,
   getSlip,
   getConfig,
   Userbaseinfo

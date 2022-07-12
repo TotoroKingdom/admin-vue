@@ -23,7 +23,7 @@
       </div>
       <div class="input-box">
         <label>密码</label>
-        <input type="password" v-model="pwd" />
+        <input type="password" v-model="pwd" @keyup.enter="UserLogin()"/>
       </div>
       <div class="btn-box">
         <a href="#">忘记密码?</a>
@@ -38,15 +38,15 @@
       <h2>Sign</h2>
       <div class="input-box">
         <label>账号</label>
-        <input type="text" v-model="LoginuserID" />
+        <input class="Signmail" type="text" v-model="email" placeholder="请输入邮箱" />
       </div>
       <div class="input-box">
         <label>密码</label>
-        <input type="password" v-model="Loginpwd" />
+        <input type="password" v-model="Signpwd" @keyup.enter="UserRegister()"/>
       </div>
       <div class="btn-box">
         <div>
-          <button v-text="`注册`" @click="UserLogin"></button>
+          <button v-text="`注册`" @click="UserRegister"></button>
           <button v-text="`已有账号直接登陆`" @click="backLogin"></button>
         </div>
       </div>
@@ -64,12 +64,33 @@ export default {
       msg: "Welcome!",
       userID: "",
       pwd: "",
-      LoginuserID: "",
+      email: "",
       Loginpwd: "",
+      Signpwd:''
     };
   },
   mounted() {},
   methods: {
+    /* 注册 */
+    UserRegister(){
+      const url = '/register/email'
+      let _this = this
+      let params  = {
+        email:_this.email,
+        password:_this.Signpwd
+      }
+      return new Promise((resolve, reject) => {
+        _this.$UserData.Register(url,params).then((res)=>{
+          _this.$message({
+            message:'邮件发送成功',
+            type:'success'
+          })
+          resolve()
+        }).catch((err)=>{
+          reject(err)
+        })
+      })
+    },
     /* 静音 */
     musicMuted() {
       let musicdom = document.querySelector(".Playmusic");
@@ -111,6 +132,8 @@ export default {
       let Logindom = document.querySelector(".box");
       Signdom.style.transform = "rotateY(-180deg)";
       Logindom.style.transform = "rotateY(0deg)";
+      _this.UserSign = '';
+      _this.Signpwd ='';
     },
     getUserinfo() {
       let _this = this;
@@ -174,5 +197,8 @@ export default {
   backface-visibility: hidden;
   transform: rotateY(-180deg);
   transition: all 0.5s;
+}
+.Signbox .input-box .Signmail::-webkit-input-placeholder{
+  color:whitesmoke
 }
 </style>
