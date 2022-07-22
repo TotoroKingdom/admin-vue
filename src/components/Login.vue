@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { parse } from "yaml";
+
 
 export default {
   name: "Login",
@@ -69,7 +69,10 @@ export default {
       Signpwd:''
     };
   },
-  mounted() {},
+  mounted() {
+   
+
+  },
   methods: {
     /* 注册 */
     UserRegister(){
