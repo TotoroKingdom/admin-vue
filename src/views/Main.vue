@@ -36,7 +36,7 @@
         </div>
         <div class="slipborder">
           <div class="slip">
-           {{todayslip}}
+            {{todayslip}}
           </div>
         </div>
         <div class="imgs">
@@ -90,24 +90,43 @@
           "
         />
 
-        <div
-          style="
+        <div style="
             position: absolute;
             overflow: hidden;
             height: 100%;
             width: 100%;
-          "
-        >
-          <div class="round" style="top: -40px; right: -40px"></div>
-          <div class="round" style="top: -40px; left: -40px"></div>
-          <div class="round" style="bottom: -40px; right: -40px"></div>
-          <div class="round" style="bottom: -40px; left: -40px"></div>
+          ">
+          <div
+            class="round"
+            style="top: -40px; right: -40px"
+          ></div>
+          <div
+            class="round"
+            style="top: -40px; left: -40px"
+          ></div>
+          <div
+            class="round"
+            style="bottom: -40px; right: -40px"
+          ></div>
+          <div
+            class="round"
+            style="bottom: -40px; left: -40px"
+          ></div>
           <div class="Mainborder"></div>
           <div class="Mainsecond">
             <div class="secondsolid">
-              <div class="secondRound" style="top: -10px; left: -10px"></div>
-              <div class="secondRound" style="top: -10px; right: -10px"></div>
-              <div class="secondRound" style="bottom: -10px; left: -10px"></div>
+              <div
+                class="secondRound"
+                style="top: -10px; left: -10px"
+              ></div>
+              <div
+                class="secondRound"
+                style="top: -10px; right: -10px"
+              ></div>
+              <div
+                class="secondRound"
+                style="bottom: -10px; left: -10px"
+              ></div>
               <div
                 class="secondRound"
                 style="bottom: -10px; right: -10px"
@@ -132,47 +151,67 @@
 </template>
 
 <script>
-
-import { Base64 } from 'js-base64'
+import { Base64 } from "js-base64";
 export default {
   name: "Main",
   data() {
     return {
       msg: "Welcome 神里大小姐",
-      todayslip:''
+      todayslip: "",
     };
   },
-  mounted(){
-    let _this = this 
-    _this.GetSlip()
-   
+  mounted() {
+    let _this = this;
+    _this.GetSlip();
   },
-  methods:{
-    GetSlip(){
-      let _this = this 
+  methods: {
+    GetSlip() {
+      let _this = this;
       // const url = '/apis/today/fortune'
-      const url = '/today/fortune'
-      let headerparams = sessionStorage.getItem('token')
-   
+      const url = "/today/fortune";
+      let headerparams = sessionStorage.getItem("token");
+
       return new Promise((resolve, reject) => {
-        _this.$UserData.getSlip(url,'',headerparams).then((res)=>{
-          
-          if(res){
-             _this.todayslip =Base64.decode(res.data.content)
-             
-          }
-          resolve()
-        }).catch((err)=>{
-          reject(err)
-        })
-      })
-    }
-  }
+        _this.$UserData
+          .getSlip(url, "", headerparams)
+          .then((res) => {
+            if (res) {
+              _this.todayslip = Base64.decode(res.data.content);
+            }
+            resolve();
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media screen and (max-height: 768px) {
+  .slipMain {
+    transform: scale(0.68);
+    margin-top: -40px;
+    margin-left: -64px;
+  }
+
+  .headermain {
+    width: 1100px !important;
+  }
+
+  .contentMain {
+    transform: scale(0.75);
+    margin-top: -42px !important;
+    margin-left: 41px !important;
+  }
+  .shentong {
+    transform: scale(0.7);
+    margin-right: -13px;
+  }
+}
 .headertop {
   height: 60px;
   background-color: rgba(255, 255, 255, 0.5);
